@@ -1,0 +1,76 @@
+Storage data: 1976-01 to 2026-07
+Price data:   1997-01 to 2026-08
+Sample: 1997-01 to 2026-07 (355 months)
+
+1) Same month: price move in month t on the storage news of month t
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  dlogp   R-squared:                       0.310
+Model:                            OLS   Adj. R-squared:                  0.306
+Method:                 Least Squares   F-statistic:                     47.09
+Date:                Thu, 29 Oct 2026   Prob (F-statistic):           7.62e-19
+Time:                        11:19:35   Log-Likelihood:                 213.99
+No. Observations:                 354   AIC:                            -422.0
+Df Residuals:                     351   BIC:                            -410.4
+Df Model:                           2                                         
+Covariance Type:                  HAC                                         
+===============================================================================
+                  coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------
+const          -0.0003      0.007     -0.038      0.970      -0.013       0.013
+change_dev     -0.0816      0.008     -9.705      0.000      -0.098      -0.065
+surplus_pct     0.0002      0.000      0.524      0.600      -0.001       0.001
+==============================================================================
+Omnibus:                       58.547   Durbin-Watson:                   2.182
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              262.757
+Skew:                          -0.601   Prob(JB):                     8.77e-58
+Kurtosis:                       7.046   Cond. No.                         17.8
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 3 lags and without small sample correction
+R-squared: 0.310
+
+2) Next month: price move in t+1 on the storage news of month t
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 target   R-squared:                       0.030
+Model:                            OLS   Adj. R-squared:                  0.024
+Method:                 Least Squares   F-statistic:                     6.536
+Date:                Thu, 29 Oct 2026   Prob (F-statistic):            0.00163
+Time:                        11:19:35   Log-Likelihood:                 154.62
+No. Observations:                 355   AIC:                            -303.2
+Df Residuals:                     352   BIC:                            -291.6
+Df Model:                           2                                         
+Covariance Type:                  HAC                                         
+===============================================================================
+                  coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------
+const          -0.0057      0.008     -0.727      0.467      -0.021       0.010
+change_dev     -0.0211      0.009     -2.395      0.017      -0.038      -0.004
+surplus_pct     0.0012      0.000      2.865      0.004       0.000       0.002
+==============================================================================
+Omnibus:                       62.943   Durbin-Watson:                   2.179
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              386.245
+Skew:                          -0.545   Prob(JB):                     1.34e-84
+Kurtosis:                       7.992   Cond. No.                         17.8
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 3 lags and without small sample correction
+
+3) Walk-forward, next month (expanding window, min 120 months)
+  months: 235
+  oos_r2_vs_mean: -0.0074
+  hit_rate: 0.5404
+
+4) Walk-forward, 2010 onward only (min 84 months)
+  months: 115
+  oos_r2_vs_mean: -0.0129
+  hit_rate: 0.5217
+
+5) Walk-forward, next month, without the Winter Storm Uri months (Jan-Feb 2021 rows)
+  months: 233
+  oos_r2_vs_mean: 0.0158
+  hit_rate: 0.5451
+
